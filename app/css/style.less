@@ -1,0 +1,75 @@
+@import "../bower_components/bootstrap/less/mixins.less";
+@import "../bower_components/bootstrap/less/variables.less";
+
+@navy: #2b313b;
+@bone: #f2f2f2;
+
+@link: fade(@bone, 25%);
+@link_hover: fade(@bone, 50%);
+@link_active: fade(@bone, 75%);
+
+/*****************************************************************
+*
+* Style defaults
+*
+******************************************************************/
+
+body {
+  // background: @navy;
+  // color: @bone;
+  // font-size: 18px;
+}
+
+::selection {
+  background: rgba(227, 80, 80, 0.5);
+  color: #fff;
+}
+
+a {
+  // color: @link;
+}
+
+a:hover {
+  // color: @link_hover;
+}
+
+h1, h2, h3, h4, h5 {
+  // margin: 10px 0;
+  // font-weight: normal;
+}
+
+
+/*****************************************************************
+*
+* Angular
+*
+******************************************************************/
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+
+/*****************************************************************
+*
+* Foot
+*
+******************************************************************/
+
+.foot {
+  margin-top: 100px;
+
+  .title a {
+    color: @bone;
+  }
+
+  .author {
+    position: relative;
+    top: -26px;
+    left: 92px;
+
+  }
+
+}

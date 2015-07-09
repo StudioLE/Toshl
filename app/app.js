@@ -9,7 +9,7 @@ angular.module('app', [
   'ngRoute',
   'LocalStorageModule',
   'navList',
-  'angularFileUpload',
+  'ngFileUpload',
   'app.config',
   'app.dashboard',
   'app.pages'

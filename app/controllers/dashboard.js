@@ -28,7 +28,7 @@ angular.module('app.dashboard', ['ngRoute'])
 * DashboardCtrl controlller
 *
 ******************************************************************/
-.controller('DashboardCtrl', function($scope, Data, Parse) {
+.controller('DashboardCtrl', function($scope, $location, Data, Parse) {
 
   var data = Data.get()
   
@@ -58,7 +58,10 @@ angular.module('app.dashboard', ['ngRoute'])
 
       // Store data in Local Storage
       Data.set(results)
-      console.log(Data.get())
+      console.debug(Data.get())
+
+      // Redirect
+      $location.path('/parse')
 
       // $scope.$apply(function() {
       //     $scope.raw = reader.result;
@@ -74,7 +77,7 @@ angular.module('app.dashboard', ['ngRoute'])
     // when read operation is successfully finished the load event is triggered
     // and handled by our reader.onload function
     reader.readAsText(csvFile);
-    console.log(csvFile)
+    console.debug(csvFile)
   };
 
 });

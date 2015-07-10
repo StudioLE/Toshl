@@ -64,7 +64,6 @@ angular.module('app.dashboard', ['ngRoute'])
     row.removed = ! row.removed
     Data.set($scope.data())
   }
-
   
 
   /**
@@ -81,7 +80,8 @@ angular.module('app.dashboard', ['ngRoute'])
     reader.onload = function(e) {
       // Parse CSV file
       var results = Papa.parse(reader.result, {
-        header: true
+        header: true,
+        skipEmptyLines: true
       })
 
       // results.expenses = []
@@ -95,7 +95,7 @@ angular.module('app.dashboard', ['ngRoute'])
       console.debug(Data.get())
 
       // Redirect
-      $location.path('/parse')
+      // $location.path('/parse')
 
       // $scope.$apply(function() {
       //     $scope.raw = reader.result;

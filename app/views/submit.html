@@ -1,0 +1,51 @@
+<h2>Incomes</h2>
+
+<a ng-click="submit('income')" class="btn btn-info">Submit income</a>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 15%;">Date</th>
+    <th style="width: 15%;">Amount</th>
+    <th style="width: 20%;">Tags</th>
+    <th style="width: 40%;">Description</th>
+    <!-- <th style="width: 10%;">Options</th> -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="row in data().incomes">
+    <td>{{ row.date }}</td>
+    <td>{{ row.amount }}</td>
+    <td><span ng-repeat="tag in row.tags" 
+      class="label label-default" 
+      ng-class="{'label-danger': (tag == 'unknown')}">{{ tag }}</span></td>
+    <td>{{ row.desc }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Expenses</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 15%;">Date</th>
+    <th style="width: 15%;">Amount</th>
+    <th style="width: 20%;">Tags</th>
+    <th style="width: 40%;">Description</th>
+    <!-- <th style="width: 10%;">Options</th> -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="row in data().expenses">
+    <td>{{ row.date }}</td>
+    <td>{{ row.amount }}</td>
+    <td><span ng-repeat="tag in row.tags" 
+      class="label label-default" 
+      ng-class="{'label-danger': (tag == 'unknown')}">{{ tag }}</span></td>
+    <td>{{ row.desc }}</td>
+  </tr>
+  </tbody>
+</table>
+
+

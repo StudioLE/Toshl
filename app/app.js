@@ -14,6 +14,7 @@ angular.module('app', [
   'app.config',
   'app.dashboard',
   'app.pages',
+  'app.submit',
   'app.dataFactory',
   'app.parseFactory'
 ])

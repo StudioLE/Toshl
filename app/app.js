@@ -12,7 +12,9 @@ angular.module('app', [
   'ngFileUpload',
   'app.config',
   'app.dashboard',
-  'app.pages'
+  'app.pages',
+  'app.dataFactory',
+  'app.parseFactory'
 ])
 
 /*****************************************************************

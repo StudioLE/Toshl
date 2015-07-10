@@ -2,6 +2,7 @@
   <li ng-repeat="link in nav" ng-class="navClass(link.url)"><a href="{{link.url}}">{{link.title}}</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
+  <li><a ng-click="clearData()">Clear</a></li>
   <li><a href="#/login">Login</a></li>
   <li><a href="#/register">Register</a></li>
 </ul>

@@ -1,5 +1,25 @@
 <div class="container">
-  <h1>Welcome {{user().name}}</h1>
-  <p>You are user {{user().id}} and your email is {{user().email}}</p>
-  <p><a href="#/logout">Logout</a></p>
+  <input type="file" id="csvFile" onchange="angular.element(this).scope().fileChanged(this)">
+  
+  <textarea ng-model="raw" style="width: 100%" disabled></textarea>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th style="min-width: 80px;">Date</th>
+      <th style="min-width: 80px;">Amount</th>
+      <th style="min-width: 80px;">Memo</th>
+      <th style="min-width: 80px;">Extra</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in results.data" ng-if="1">
+      <td>{{ row.Date | date }}</td>
+      <td>{{ row.Amount }}</td>
+      <td>{{ row.Memo }}</td>
+      <td>{{ row.__parsed_extra[0] }}</td>
+    </tr>
+    </tbody>
+  </table>
+
 </div> <!-- .container -->

@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th style="min-width: 80px;">Date</th>
+    <th style="min-width: 80px;">Amount</th>
+    <th style="min-width: 80px;">Tags</th>
+    <th style="min-width: 80px;">desc</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="row in data().data" ng-if="1">
+    <td>{{ row.parsed.date }}</td>
+    <td>{{ row.parsed.amount }}</td>
+    <td>{{ row.parsed.tags }}</td>
+    <td>{{ row.parsed.desc }}</td>
+  </tr>
+  </tbody>
+</table>

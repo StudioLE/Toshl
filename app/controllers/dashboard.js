@@ -55,6 +55,19 @@ angular.module('app.dashboard', ['ngRoute'])
   }
 
   /**
+   * Remove row
+   *
+   * Called when a x-editable is saved
+   */
+  $scope.removeRow = function(row) {
+    // Toggle remove
+    row.removed = ! row.removed
+    Data.set($scope.data())
+  }
+
+  
+
+  /**
    * Import & parse CSV file
    *
    * Called when the file selection changes

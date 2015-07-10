@@ -6,19 +6,23 @@
     <th style="min-width: 80px;">Date</th>
     <th style="min-width: 80px;">Amount</th>
     <th style="min-width: 80px;">Tags</th>
-    <th style="min-width: 80px;">desc</th>
+    <th style="min-width: 80px;">Description</th>
+    <th style="min-width: 80px;">Options</th>
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="row in data().data" ng-if="1">
+  <tr ng-repeat="row in data().data" 
+    ng-class="{'success': (row.type == 'income'), 'removed': (row.removed)}">
     <td>{{ row.parsed.date }}</td>
     <td>{{ row.parsed.amount }}</td>
-    <td><span ng-repeat="tag in row.parsed.tags" class="label label-default" 
+    <td><span ng-repeat="tag in row.parsed.tags" 
+      class="label label-default" 
       ng-class="{'label-danger': (tag == 'unknown')}" 
       editable-text="tag"
       onaftersave="updateData()">{{ tag }}</span></td>
     <td editable-text="row.parsed.desc"
       onaftersave="updateData()">{{ row.parsed.desc }}</td>
+    <td><a ng-click="removeRow(row)"><i class="fa fa-trash"></i></a></td>
   </tr>
   </tbody>
 </table>

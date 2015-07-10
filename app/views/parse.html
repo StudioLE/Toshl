@@ -1,3 +1,5 @@
+<a ng-click="dataCheck()">Check data</a>
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -11,8 +13,12 @@
   <tr ng-repeat="row in data().data" ng-if="1">
     <td>{{ row.parsed.date }}</td>
     <td>{{ row.parsed.amount }}</td>
-    <td><span ng-repeat="tag in row.parsed.tags" class="label label-default" ng-class="{'label-danger': (tag == 'unknown')}">{{ tag }}</span></td>
-    <td>{{ row.parsed.desc }}</td>
+    <td><span ng-repeat="tag in row.parsed.tags" class="label label-default" 
+      ng-class="{'label-danger': (tag == 'unknown')}" 
+      editable-text="tag"
+      onaftersave="updateData()">{{ tag }}</span></td>
+    <td editable-text="row.parsed.desc"
+      onaftersave="updateData()">{{ row.parsed.desc }}</td>
   </tr>
   </tbody>
 </table>

@@ -10,6 +10,7 @@ angular.module('app', [
   'LocalStorageModule',
   'navList',
   'ngFileUpload',
+  'xeditable',
   'app.config',
   'app.dashboard',
   'app.pages',
@@ -32,3 +33,15 @@ angular.module('app', [
 *
 ******************************************************************/
 .constant('_', window._)
+
+
+/*****************************************************************
+*
+* Xeditable
+*
+******************************************************************/
+.run(function(editableOptions, editableThemes) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  editableThemes.bs3.inputClass = 'input-sm';
+  editableThemes.bs3.buttonsClass = 'btn-sm';
+})

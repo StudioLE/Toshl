@@ -30,14 +30,35 @@ angular.module('app.dashboard', ['ngRoute'])
 ******************************************************************/
 .controller('DashboardCtrl', function($scope, $location, Data, Parse) {
 
+  /**
+   * Get data from local storage
+   */
   var data = Data.get()
-  
   $scope.data = function() {
     return data
   }
 
-  $scope.errors = []
+  /**
+   * Send the current data to console
+   */
+  $scope.dataCheck = function() {
+    console.log($scope.data())
+  }
 
+  /**
+   * Update data model
+   *
+   * Called when a x-editable is saved
+   */
+  $scope.updateData = function() {
+    Data.set($scope.data())
+  }
+
+  /**
+   * Load & parse CSV file
+   *
+   * Called when the file selection changes
+   */
   $scope.fileChanged = function() {
 
     // define reader

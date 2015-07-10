@@ -6,13 +6,13 @@ angular.module('navList', [])
   };
 
   $scope.nav = [{
-    url: '#/upload',
-    title: 'Upload'
+    url: '#/import',
+    title: 'Import'
   }, {
-    url: '#/data',
+    url: '#/raw',
     title: 'Raw'
   }, {
-    url: '#/parse',
+    url: '#/process',
     title: 'Process'
   }, {
     url: '#/submit',
@@ -24,7 +24,7 @@ angular.module('navList', [])
   }
 
   $scope.clearData = function() {
-    $location.path('/upload')
+    $location.path('/import')
     return Data.unset()
   }
 

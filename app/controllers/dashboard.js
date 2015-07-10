@@ -9,16 +9,16 @@ angular.module('app.dashboard', ['ngRoute'])
 *
 ******************************************************************/
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/upload', {
-    templateUrl: 'views/upload.html',
+  $routeProvider.when('/import', {
+    templateUrl: 'views/import.html',
     controller: 'DashboardCtrl'
   });
-  $routeProvider.when('/data', {
-    templateUrl: 'views/data.html',
+  $routeProvider.when('/raw', {
+    templateUrl: 'views/raw.html',
     controller: 'DashboardCtrl'
   });
-  $routeProvider.when('/parse', {
-    templateUrl: 'views/parse.html',
+  $routeProvider.when('/process', {
+    templateUrl: 'views/process.html',
     controller: 'DashboardCtrl'
   });
 }])
@@ -41,7 +41,7 @@ angular.module('app.dashboard', ['ngRoute'])
   /**
    * Send the current data to console
    */
-  $scope.dataCheck = function() {
+  $scope.checkData = function() {
     console.log($scope.data())
   }
 
@@ -55,11 +55,11 @@ angular.module('app.dashboard', ['ngRoute'])
   }
 
   /**
-   * Load & parse CSV file
+   * Import & parse CSV file
    *
    * Called when the file selection changes
    */
-  $scope.fileChanged = function() {
+  $scope.importData = function() {
 
     // define reader
     var reader = new FileReader();

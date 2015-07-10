@@ -20,7 +20,7 @@ angular.module('app.submit', ['ngRoute'])
 * SubmitCtrl controlller
 *
 ******************************************************************/
-.controller('SubmitCtrl', function($scope, $location, Data) {
+.controller('SubmitCtrl', function($scope, $location, Data, Config, OAuth, Income, Expense) {
 
   /**
    * Sort data
@@ -40,8 +40,21 @@ angular.module('app.submit', ['ngRoute'])
     return data
   }
 
+  $scope.oauth = function(type) {
+    window.location.href = Config.oauth()
+    console.log(OAuth.isAuthenticated())
+  }
+
   $scope.submit = function(type) {
     console.log('Submitting ' + type)
+    console.log(data[type])
+    Income.save(data[type], function(value, response) {
+      console.log('success')
+      console.log(response)
+    }, function(response) {
+      console.log('failure')
+      console.log(response)
+    })
   }
 
 });

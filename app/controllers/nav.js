@@ -10,13 +10,10 @@ angular.module('navList', [])
     title: 'Upload'
   }, {
     url: '#/data',
-    title: 'Data'
-  }, {
-    url: '#/raw',
     title: 'Raw'
   }, {
     url: '#/parse',
-    title: 'Parse'
+    title: 'Process'
   }, {
     url: '#/submit',
     title: 'Submit'
@@ -27,7 +24,12 @@ angular.module('navList', [])
   }
 
   $scope.clearData = function() {
+    $location.path('/upload')
     return Data.unset()
+  }
+
+  $scope.dataIsSet = function() {
+    return Data.isset()
   }
   
 });

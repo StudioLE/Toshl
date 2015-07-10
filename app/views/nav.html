@@ -1,6 +1,6 @@
 <ul class="nav navbar-nav">
   <li ng-if="dataIsSet()" ng-repeat="link in nav" ng-class="navClass(link.url)"><a href="{{link.url}}">{{link.title}}</a></li>
-  <li ng-if=" ! dataIsSet()"><a href="#/upload">Upload</a></li>
+  <li ng-if=" ! dataIsSet()"><a href="#/import">Import</a></li>
 
 </ul>
 <ul class="nav navbar-nav navbar-right">

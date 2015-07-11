@@ -1,9 +1,6 @@
 @import "../bower_components/bootstrap/less/mixins.less";
 @import "../bower_components/bootstrap/less/variables.less";
 
-@navy: #2b313b;
-@bone: #f2f2f2;
-
 @bg: #f2f1e6;
 
 @nav_bg: #4d4d4d;
@@ -14,10 +11,6 @@
 @nav_active: #f2f1e6;
 @nav_fade: #616161;
 
-@link: fade(@bone, 25%);
-@link_hover: fade(@bone, 50%);
-@link_active: fade(@bone, 75%);
-
 /*****************************************************************
 *
 * Style defaults
@@ -25,9 +18,7 @@
 ******************************************************************/
 
 body {
-  background: @bg;
-  // color: @bone;
-  // font-size: 18px;
+  background: @nav_bg;
 }
 
 ::selection {
@@ -57,11 +48,32 @@ h1 a.btn {
 
 /*****************************************************************
 *
+* Page
+*
+******************************************************************/
+
+.main {
+  padding: 20px 0 50px;
+  background: @bg;
+}
+
+input[type="file"] {
+  margin: 50px 0;
+}
+
+/*****************************************************************
+*
 * Nav
 *
 ******************************************************************/
+
+.navbar {
+  margin-bottom: 0;
+}
+
 .navbar-default {
   background: @nav_bg;
+  border: none;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -138,16 +150,6 @@ h1 a.btn {
 
 /*****************************************************************
 *
-* Pages
-*
-******************************************************************/
-
-input[type="file"] {
-  margin: 50px 0;
-}
-
-/*****************************************************************
-*
 * Table
 *
 ******************************************************************/
@@ -180,7 +182,6 @@ tr.removed {
 ******************************************************************/
 
 .foot {
-  margin-top: 50px;
   padding-bottom: 80px;
   background: @nav_bg;
 

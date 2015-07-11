@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 angular.module('app.userFactory', [])
 
@@ -49,4 +49,4 @@ angular.module('app.userFactory', [])
       return localStorageService.remove('user')
     }
   }
-});
+})

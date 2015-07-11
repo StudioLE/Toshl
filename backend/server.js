@@ -11,7 +11,7 @@ var config = require('./config')
 // Create a server
 http.createServer(function(req, res) {
 
-  
+
 
   function response(res, output, content_type, status) {
     // Log the request
@@ -52,42 +52,42 @@ http.createServer(function(req, res) {
       }
     }, function(toshlRes) {
       // If successful
-      console.log('Response from Toshl: ' + toshlRes.statusCode);
-      toshlRes.setEncoding('utf8');
+      console.log('Response from Toshl: ' + toshlRes.statusCode)
+      toshlRes.setEncoding('utf8')
       toshlRes.on('data', function(d) {
-        
+
         // Redirect back to app
         redirectTo = config.app_url + '/#/auth/?' + querystring.stringify(JSON.parse(d))
         console.log(redirectTo)
         res.writeHead(302, {
           'Location': redirectTo
           //add other headers here...
-        });
-        res.end();
+        })
+        res.end()
         // return response(res, d, toshlRes.statusCode, 'text/json')
-      });
+      })
 
     })
 
     // On error
     toshlReq.on('error', function(e) {
-      console.log('problem with request: ' + e.message);
+      console.log('problem with request: ' + e.message)
       console.error(e)
     })
 
     toshlReq.write(data)
     toshlReq.end()
 
-    
-  } 
+
+  }
   else if(request.pathname == '/token') {
     return response(res, 'Expecting a `code` query string', 'text/html', 404)
   }
   else {
     return response(res, '404 Page Not Found', 'text/html', 404)
   }
-  
-}).listen(config.server_port, config.server_address);
 
-console.log('Server running at http://%s:%s/', config.server_address, config.server_port);
+}).listen(config.server_port, config.server_address)
+
+console.log('Server running at http://%s:%s/', config.server_address, config.server_port)
 console.log('Close with CTRL + C')

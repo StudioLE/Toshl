@@ -1,7 +1,6 @@
-'use strict';
+'use strict'
 
 angular.module('app.auth', ['ngRoute'])
-
 
 /*****************************************************************
 *
@@ -12,7 +11,7 @@ angular.module('app.auth', ['ngRoute'])
   $routeProvider.when('/auth', {
     templateUrl: 'views/import.html',
     controller: 'AuthCtrl'
-  });
+  })
 }])
 
 /*****************************************************************
@@ -31,4 +30,4 @@ angular.module('app.auth', ['ngRoute'])
     console.error('No access token received')
   }
 
-});
+})

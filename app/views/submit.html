@@ -1,10 +1,6 @@
-
 <h1>Submit
-
   <a ng-if="isAuthenticated()" ng-click="submit()" class="btn btn-info">Submit incomes &amp; expenses</a>
-
   <a ng-if=" ! isAuthenticated()" ng-click="signIn()" class="btn btn-info">You must sign in first</a>
-
 </h1>
 
 <h2>Incomes</h2>
@@ -23,8 +19,8 @@
   <tr ng-repeat="row in data().incomes">
     <td>{{ row.date }}</td>
     <td>{{ row.amount }}</td>
-    <td><span ng-repeat="tag in row.tags" 
-      class="label label-default" 
+    <td><span ng-repeat="tag in row.tags"
+      class="label label-default"
       ng-class="{'label-danger': (tag == 'unknown')}">{{ tag }}</span></td>
     <td>{{ row.desc }}</td>
     <td></td>
@@ -48,13 +44,12 @@
   <tr ng-repeat="row in data().expenses">
     <td>{{ row.date }}</td>
     <td>{{ row.amount }}</td>
-    <td><span ng-repeat="tag in row.tags" 
-      class="label label-default" 
+    <td><span ng-repeat="tag in row.tags"
+      class="label label-default"
       ng-class="{'label-danger': (tag == 'unknown')}">{{ tag }}</span></td>
     <td>{{ row.desc }}</td>
     <td></td>
   </tr>
   </tbody>
 </table>
-
 

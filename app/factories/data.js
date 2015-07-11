@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 angular.module('app.dataFactory', [])
 
@@ -49,4 +49,4 @@ angular.module('app.dataFactory', [])
       return localStorageService.remove('data')
     }
   }
-});
+})

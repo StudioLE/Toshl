@@ -2,8 +2,8 @@ angular.module('navList', [])
 
 .controller('navCtrl', function($scope, $location, Data, User, Config) {
   $scope.navClass = function(href) {
-    return href === '#' + $location.path() ? 'active' : '';
-  };
+    return href === '#' + $location.path() ? 'active' : ''
+  }
 
   $scope.nav = [{
     url: '#/import',
@@ -40,5 +40,5 @@ angular.module('navList', [])
   $scope.isAuthenticated = function() {
     return User.isset()
   }
-  
-});
+
+})

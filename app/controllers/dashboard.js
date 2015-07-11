@@ -1,7 +1,6 @@
-'use strict';
+'use strict'
 
 angular.module('app.dashboard', ['ngRoute'])
-
 
 /*****************************************************************
 *
@@ -12,11 +11,11 @@ angular.module('app.dashboard', ['ngRoute'])
   $routeProvider.when('/import', {
     templateUrl: 'views/import.html',
     controller: 'DashboardCtrl'
-  });
+  })
   $routeProvider.when('/review', {
     templateUrl: 'views/review.html',
     controller: 'DashboardCtrl'
-  });
+  })
 }])
 
 /*****************************************************************
@@ -60,7 +59,6 @@ angular.module('app.dashboard', ['ngRoute'])
     row.removed = ! row.removed
     Data.set($scope.data())
   }
-  
 
   /**
    * Import & parse CSV file
@@ -70,7 +68,7 @@ angular.module('app.dashboard', ['ngRoute'])
   $scope.importData = function() {
 
     // define reader
-    var reader = new FileReader();
+    var reader = new FileReader()
 
     // A handler for the load event (just defining it, not executing it right now)
     reader.onload = function(e) {
@@ -87,9 +85,8 @@ angular.module('app.dashboard', ['ngRoute'])
 
       // Divide the rows by type
       _.each(results.data, function(item) {
-        console.log(item)
         if( ! item.Amount) {
-          console.log('Blank row')
+          // Blank row
         }
         else if(item.Amount.substr(0,1) == '-') {
           item.type = 'expense'
@@ -104,35 +101,29 @@ angular.module('app.dashboard', ['ngRoute'])
       // Add to the local scope so the user gets immediate feedback
       $scope.$apply(function() {
           $scope.data = data
-      });
+      })
 
-      console.log(results)
-      console.log(data)
-      
       // Parse each expense
-      console.log(_.map(data.expenses, Parse.expense))
-      
-      // Parse each income
-      console.log(_.map(data.incomes, Parse.income))
+      _.map(data.expenses, Parse.expense)
 
-      console.log(data)
+      // Parse each income
+      _.map(data.incomes, Parse.income)
 
       // Store data in Local Storage
       Data.set(data)
 
       // Redirect
       // $location.path('/review')
-    };
+    }
 
-    // get <input> element and the selected file 
-    var csvFileInput = document.getElementById('csvFile');    
-    var csvFile = csvFileInput.files[0];
+    // get <input> element and the selected file
+    var csvFileInput = document.getElementById('csvFile')
+    var csvFile = csvFileInput.files[0]
 
     // use reader to read the selected file
     // when read operation is successfully finished the load event is triggered
     // and handled by our reader.onload function
-    reader.readAsText(csvFile);
-    console.debug(csvFile)
-  };
+    reader.readAsText(csvFile)
+  }
 
-});
+})

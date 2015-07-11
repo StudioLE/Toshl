@@ -13,13 +13,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="row in data().incomes" 
+  <tr ng-repeat="row in data().incomes"
     ng-class="{'removed': (row.removed)}">
     <td>{{ row.parsed.date }}</td>
     <td>{{ row.parsed.amount }}</td>
-    <td><span ng-repeat="tag in row.parsed.tags" 
-      class="label label-default" 
-      ng-class="{'label-danger': (tag == 'unknown')}" 
+    <td><span ng-repeat="tag in row.parsed.tags"
+      class="label label-default"
+      ng-class="{'label-danger': (tag == 'unknown')}"
       editable-text="tag"
       onaftersave="updateData()">{{ tag }}</span></td>
     <td editable-text="row.parsed.desc"
@@ -42,13 +42,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="row in data().expenses" 
+  <tr ng-repeat="row in data().expenses"
     ng-class="{'removed': (row.removed)}">
     <td>{{ row.parsed.date }}</td>
     <td>{{ row.parsed.amount }}</td>
-    <td><span ng-repeat="tag in row.parsed.tags" 
-      class="label label-default" 
-      ng-class="{'label-danger': (tag == 'unknown')}" 
+    <td><span ng-repeat="tag in row.parsed.tags"
+      class="label label-default"
+      ng-class="{'label-danger': (tag == 'unknown')}"
       editable-text="tag"
       onaftersave="updateData()">{{ tag }}</span></td>
     <td editable-text="row.parsed.desc"

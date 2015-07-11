@@ -1,7 +1,6 @@
-'use strict';
+'use strict'
 
 angular.module('app.submit', ['ngRoute'])
-
 
 /*****************************************************************
 *
@@ -12,7 +11,7 @@ angular.module('app.submit', ['ngRoute'])
   $routeProvider.when('/submit', {
     templateUrl: 'views/submit.html',
     controller: 'SubmitCtrl'
-  });
+  })
 }])
 
 /*****************************************************************
@@ -53,7 +52,7 @@ angular.module('app.submit', ['ngRoute'])
     // This is actually ridiculous
     // The Toshl API requires expenses to be submitted one by one
     // Hence the ridiculous each loop
-    
+
     // Incomes
     _.each(data.incomes, function(item) {
       Income.save(item, function(value, response) {
@@ -77,4 +76,4 @@ angular.module('app.submit', ['ngRoute'])
     })
   }
 
-});
+})

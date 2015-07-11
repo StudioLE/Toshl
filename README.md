@@ -1,10 +1,14 @@
-# Import transaction data to Toshl
+# Toshl Import App
+
+Import expenses and incomes to Toshl from a csv file.
 
 Toshl is a fantastic web service for tracking your income and expenditures but it's a little tedious manually inputting each transaction so I created this little web app to automate the process.
 
 1. Import - Import a .csv file of your transactions from your bank account
 2. Review - The app automatically scans and tags your transactions bu you can still make some manual edits if you wish
 3. Submit - Authorise the app to connect to your Toshl account then you can submit your transactions straight to Toshl
+
+Find the app at [http://toshl.studiole.uk](http://toshl.studiole.uk)
 
 ## Roadmap / To Do
 
@@ -22,10 +26,12 @@ Reorganisation
 Code
 - [x] User icon to indicate whether authenticated
 - [ ] Revoke auth method
+- [ ] Sample data
+- [ ] Divide incomes from expenses
+- [ ] .bin file
 
 Other
 - [ ] Come up with a neat name
-
 
 ## Source
 
@@ -37,4 +43,4 @@ I'm always on the look out for collaborators so feel free to suggest new feature
 
 ## Install
 
-Installation instructions are available at [INSTALL.md](https://github.com/StudioLE/Toshl/blob/master/INSTALL.md).
+If you want to host your own private version or run a local version feel free to follow these [installation instructions](https://github.com/StudioLE/Toshl/blob/master/INSTALL.md).

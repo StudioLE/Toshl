@@ -20,22 +20,11 @@ angular.module('app.auth', ['ngRoute'])
 * AuthCtrl controlller
 *
 ******************************************************************/
-.controller('AuthCtrl', function($scope, $location, $http, Config, OAuth) {
-
-  console.log($location.search())
+.controller('AuthCtrl', function($scope, $location, $http, Config, User) {
 
   if($location.search().access_token) {
-    // // Request an access token
-    // $http.post(Config.token_url, {
-    //   code: $location.search().code,
-    //   grant_type: 'authorization_code'
-    // }).success(function(data, status, headers, config) {
-    //   console.error('Success!')
-    //   console.error(data)
-    // }).error(function(data, status, headers, config) {
-    //   console.error('Something went wrong')
-    //   console.error(data)
-    // })
+    // Store the access_token and details
+    User.set($location.search())
   }
   else {
     console.error('No access token received')

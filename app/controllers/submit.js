@@ -20,7 +20,7 @@ angular.module('app.submit', ['ngRoute'])
 * SubmitCtrl controlller
 *
 ******************************************************************/
-.controller('SubmitCtrl', function($scope, $location, Data, Config, OAuth, Income, Expense) {
+.controller('SubmitCtrl', function($scope, $location, Data, Config, User, Income, Expense) {
 
   /**
    * Sort data
@@ -40,16 +40,49 @@ angular.module('app.submit', ['ngRoute'])
     return data
   }
 
-  $scope.oauth = function(type) {
-    window.location.href = Config.oauth()
-    console.log(OAuth.isAuthenticated())
+  $scope.isAuthenticated = function() {
+    console.log(User.isset())
   }
 
-  $scope.submit = function(type) {
-    console.log('Submitting ' + type)
-    console.log(data[type])
-    Income.save(data[type], function(value, response) {
+  $scope.oauth = function(type) {
+    window.location.href = Config.oauth()
+    // console.log(OAuth.isAuthenticated())
+  }
+
+  $scope.submit = function() {
+    console.log('Submitting...')
+
+    // This is actually ridiculous
+    // The Toshl API requires expenses to be submitted one by one
+    // Hence the ridiculous each loop
+    
+    // Incomes
+    _.each(data.incomes, function(item) {
+      Income.save(item, function(value, response) {
+        console.log('Income item saved')
+        console.log(value)
+      }, function(response) {
+        console.log('failure')
+        console.error(response)
+      })
+    })
+
+    Expenses
+    _.each(data.expenses, function(item) {
+      Expense.save(item, function(value, response) {
+        console.log('Expense item saved')
+        console.log(value)
+      }, function(response) {
+        console.log('failure')
+        console.error(response)
+      })
+    })
+  }
+
+  $scope.submitGet = function() {
+    Income.get(function(value, response) {
       console.log('success')
+      console.log(value)
       console.log(response)
     }, function(response) {
       console.log('failure')

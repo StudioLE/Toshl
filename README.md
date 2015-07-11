@@ -1,6 +1,6 @@
 # Import transaction data to Toshl
 
-Toshl is a fantastic web service for tracking your income and expenditures but it's a little tedious manually inputting each transaction so I created this little web app to automate the process. It works in 4 simple steps:
+Toshl is a fantastic web service for tracking your income and expenditures but it's a little tedious manually inputting each transaction so I created this little web app to automate the process.
 
 1. Import - Import a .csv file of your transactions from your bank account
 2. Review - The app automatically scans and tags your transactions bu you can still make some manual edits if you wish

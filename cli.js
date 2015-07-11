@@ -8,7 +8,7 @@ var arg = process.argv.slice(2)
 if(arg[0] == 'server') {
   if(arg[1] == 'app' || arg[1] === undefined) {
     sh.echo('Launching app server')
-    sh.exec('http-server app -a localhost -p 1337 -c-1 -o')
+    sh.exec('http-server app -a localhost -p 8551 -c-1')
   }
   else if(arg[1] == 'backend') {
     sh.echo('Launching backend server')

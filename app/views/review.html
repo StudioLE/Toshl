@@ -1,5 +1,7 @@
 <h1>Review <a href="#/submit" class="btn btn-info">Next step &rsaquo;</a></h1>
 
+<h2>Incomes</h2>
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -7,12 +9,41 @@
     <th style="width: 15%;">Amount</th>
     <th style="width: 20%;">Tags</th>
     <th style="width: 40%;">Description</th>
-    <th style="width: 10%;">Options</th>
+    <th style="width: 10%;"></th>
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="row in data().data" 
-    ng-class="{'success': (row.type == 'income'), 'removed': (row.removed)}">
+  <tr ng-repeat="row in data().incomes" 
+    ng-class="{'removed': (row.removed)}">
+    <td>{{ row.parsed.date }}</td>
+    <td>{{ row.parsed.amount }}</td>
+    <td><span ng-repeat="tag in row.parsed.tags" 
+      class="label label-default" 
+      ng-class="{'label-danger': (tag == 'unknown')}" 
+      editable-text="tag"
+      onaftersave="updateData()">{{ tag }}</span></td>
+    <td editable-text="row.parsed.desc"
+      onaftersave="updateData()">{{ row.parsed.desc }}</td>
+    <td><a ng-click="removeRow(row)"><i class="fa fa-trash"></i></a></td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Expenses</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 15%;">Date</th>
+    <th style="width: 15%;">Amount</th>
+    <th style="width: 20%;">Tags</th>
+    <th style="width: 40%;">Description</th>
+    <th style="width: 10%;"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="row in data().expenses" 
+    ng-class="{'removed': (row.removed)}">
     <td>{{ row.parsed.date }}</td>
     <td>{{ row.parsed.amount }}</td>
     <td><span ng-repeat="tag in row.parsed.tags" 

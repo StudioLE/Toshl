@@ -23,18 +23,17 @@ angular.module('app.submit', ['ngRoute'])
 .controller('SubmitCtrl', function($scope, $location, Data, Config, User, Income, Expense) {
 
   /**
-   * Sort data
+   * Get data from local storage
    */
-  var data = {
-    expenses: [],
-    incomes: []
+  var data = Data.get()
+
+  // Sort and prune data
+  function sortData(item) {
+    if( ! item.removed) return item.parsed
+    else return null
   }
-  _.each(Data.get().data, function(row) {
-    if( ! row.removed) {
-      // Divide the rows by type
-      data[row.type + 's'].push(row.parsed)
-    }
-  })
+  data.incomes = _.remove(_.map(data.incomes, sortData))
+  data.expenses = _.remove(_.map(data.expenses, sortData))
 
   $scope.data = function() {
     return data

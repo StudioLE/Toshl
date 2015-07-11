@@ -80,22 +80,48 @@ angular.module('app.dashboard', ['ngRoute'])
         skipEmptyLines: true
       })
 
-      // results.expenses = []
-      // results.income = []
-      
-      // Parse each row
-      results.parsed = _.map(results.data, Parse)
+      var data = {
+        expenses: [],
+        incomes: []
+      }
 
+      // Divide the rows by type
+      _.each(results.data, function(item) {
+        console.log(item)
+        if( ! item.Amount) {
+          console.log('Blank row')
+        }
+        else if(item.Amount.substr(0,1) == '-') {
+          item.type = 'expense'
+          data.expenses.push(item)
+        }
+        else {
+          item.type = 'income'
+          data.incomes.push(item)
+        }
+      })
+
+      // Add to the local scope so the user gets immediate feedback
       $scope.$apply(function() {
-          $scope.results = results
+          $scope.data = data
       });
 
+      console.log(results)
+      console.log(data)
+      
+      // Parse each expense
+      console.log(_.map(data.expenses, Parse.expense))
+      
+      // Parse each income
+      console.log(_.map(data.incomes, Parse.income))
+
+      console.log(data)
+
       // Store data in Local Storage
-      Data.set(results)
-      console.debug(Data.get())
+      Data.set(data)
 
       // Redirect
-      $location.path('/review')
+      // $location.path('/review')
     };
 
     // get <input> element and the selected file 

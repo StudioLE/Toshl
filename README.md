@@ -2,10 +2,9 @@
 
 Toshl is a fantastic web service for tracking your income and expenditures but it's a little tedious manually inputting each transaction so I created this little web app to automate the process. It works in 4 simple steps:
 
-1. Export a .csv file of your transactions from your bank account.
-2. Open the file with the app at [https://toshl.studiole.uk](https://toshl.studiole.uk).
-3. Your transactions are scanned and tagged automatically, once you've reviewed the results you can make some manual edits.
-4. Hit the authorise button then submit to send your transactions straight to Toshl.
+1. Import - Import a .csv file of your transactions from your bank account
+2. Review - The app automatically scans and tags your transactions bu you can still make some manual edits if you wish
+3. Submit - Authorise the app to connect to your Toshl account then you can submit your transactions straight to Toshl
 
 ## Roadmap / To Do
 

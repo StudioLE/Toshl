@@ -13,12 +13,8 @@ angular.module('app.dashboard', ['ngRoute'])
     templateUrl: 'views/import.html',
     controller: 'DashboardCtrl'
   });
-  $routeProvider.when('/raw', {
-    templateUrl: 'views/raw.html',
-    controller: 'DashboardCtrl'
-  });
-  $routeProvider.when('/process', {
-    templateUrl: 'views/process.html',
+  $routeProvider.when('/review', {
+    templateUrl: 'views/review.html',
     controller: 'DashboardCtrl'
   });
 }])

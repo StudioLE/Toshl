@@ -9,11 +9,8 @@ angular.module('navList', [])
     url: '#/import',
     title: 'Import'
   }, {
-    url: '#/raw',
-    title: 'Raw'
-  }, {
-    url: '#/process',
-    title: 'Process'
+    url: '#/review',
+    title: 'Review'
   }, {
     url: '#/submit',
     title: 'Submit'

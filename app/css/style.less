@@ -4,6 +4,16 @@
 @navy: #2b313b;
 @bone: #f2f2f2;
 
+@bg: #f2f1e6;
+
+@nav_bg: #4d4d4d;
+@nav_bg_hover: #3c3c3c;
+@nav_bg_active: #515151;
+@nav: #A0A0A0;
+@nav_hover: #A0A0A0;
+@nav_active: #f2f1e6;
+@nav_fade: #616161;
+
 @link: fade(@bone, 25%);
 @link_hover: fade(@bone, 50%);
 @link_active: fade(@bone, 75%);
@@ -15,7 +25,7 @@
 ******************************************************************/
 
 body {
-  // background: @navy;
+  background: @bg;
   // color: @bone;
   // font-size: 18px;
 }
@@ -34,10 +44,85 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5 {
-  // margin: 10px 0;
-  // font-weight: normal;
+  margin: 25px 0;
 }
 
+h2, h3, h4, h5 {
+  margin-bottom: 10px;
+}
+
+h1 a.btn {
+  margin-left: 20px;
+}
+
+/*****************************************************************
+*
+* Nav
+*
+******************************************************************/
+.navbar-default {
+  background: @nav_bg;
+}
+
+.navbar-default .navbar-nav>li>a {
+  background: @nav_bg;
+  color: @nav;
+}
+
+.navbar-default .navbar-nav>li.active>a {
+  background: @nav_bg_active;
+  color: @nav_active;
+
+  &:hover, &:focus {
+    background: @nav_bg_active;
+    color: @nav_active;
+  }
+}
+
+.navbar-default .navbar-nav>li>a {
+  &:hover, &:focus {
+    background: @nav_bg_hover;
+    color: @nav_hover;
+  }
+}
+
+.navbar-brand, .nav>li>a {
+  padding: 70px 40px 30px;
+}
+.nav.navbar-right>li>a {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.navbar-nav:not(.navbar-right)>li>a:before, .navbar-nav>li>a span {
+  display: block;
+  color: @nav_fade;
+  font-size: 34px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.navbar-nav>li>a span {
+  font-size: 28px;
+}
+
+.navbar-brand span {
+  display: block;
+  font-size: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+
+
+// Steps counter
+.nav {
+  counter-reset: steps-counter;
+}
+
+.navbar-nav:not(.navbar-right)>li>a:before {
+  content: counter(steps-counter);
+  counter-increment: steps-counter;
+}
 
 /*****************************************************************
 *
@@ -49,6 +134,26 @@ h1, h2, h3, h4, h5 {
 [data-ng-click],
 [x-ng-click] {
     cursor: pointer;
+}
+
+/*****************************************************************
+*
+* Pages
+*
+******************************************************************/
+
+input[type="file"] {
+  margin: 50px 0;
+}
+
+/*****************************************************************
+*
+* Table
+*
+******************************************************************/
+
+tr.removed {
+  text-decoration: line-through;
 }
 
 /*****************************************************************
@@ -70,33 +175,21 @@ h1, h2, h3, h4, h5 {
 
 /*****************************************************************
 *
-* Table
-*
-******************************************************************/
-
-
-tr.removed {
-  text-decoration: line-through;
-}
-
-/*****************************************************************
-*
 * Foot
 *
 ******************************************************************/
 
 .foot {
-  margin-top: 100px;
+  margin-top: 50px;
+  padding-bottom: 80px;
+  background: @nav_bg;
 
-  .title a {
-    color: @bone;
-  }
-
-  .author {
+  .credit {
+    clear: both;
+    display: block;
     position: relative;
-    top: -26px;
-    left: 92px;
-
+    top: 23px;
+    left: 71px;
   }
 
 }

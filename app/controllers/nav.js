@@ -1,6 +1,6 @@
 angular.module('navList', [])
 
-.controller('navCtrl', function($scope, $location, Data) {
+.controller('navCtrl', function($scope, $location, Data, User, Config) {
   $scope.navClass = function(href) {
     return href === '#' + $location.path() ? 'active' : '';
   };
@@ -21,12 +21,24 @@ angular.module('navList', [])
   }
 
   $scope.clearData = function() {
-    $location.path('/import')
+    window.location.href = '/#/import'
     return Data.unset()
   }
 
   $scope.dataIsSet = function() {
     return Data.isset()
+  }
+
+  $scope.signIn = function() {
+    window.location.href = Config.oauth()
+  }
+
+  $scope.signOut = function() {
+    User.unset()
+  }
+
+  $scope.isAuthenticated = function() {
+    return User.isset()
   }
   
 });

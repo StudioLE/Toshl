@@ -10,7 +10,7 @@ angular.module('app.auth', ['ngRoute'])
 ******************************************************************/
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/auth', {
-    templateUrl: 'views/auth.html',
+    templateUrl: 'views/import.html',
     controller: 'AuthCtrl'
   });
 }])
@@ -25,6 +25,7 @@ angular.module('app.auth', ['ngRoute'])
   if($location.search().access_token) {
     // Store the access_token and details
     User.set($location.search())
+    $location.path('/review')
   }
   else {
     console.error('No access token received')

@@ -41,12 +41,11 @@ angular.module('app.submit', ['ngRoute'])
   }
 
   $scope.isAuthenticated = function() {
-    console.log(User.isset())
+    return User.isset()
   }
 
-  $scope.oauth = function(type) {
+  $scope.signIn = function() {
     window.location.href = Config.oauth()
-    // console.log(OAuth.isAuthenticated())
   }
 
   $scope.submit = function() {
@@ -67,7 +66,7 @@ angular.module('app.submit', ['ngRoute'])
       })
     })
 
-    Expenses
+    // Expenses
     _.each(data.expenses, function(item) {
       Expense.save(item, function(value, response) {
         console.log('Expense item saved')
@@ -76,17 +75,6 @@ angular.module('app.submit', ['ngRoute'])
         console.log('failure')
         console.error(response)
       })
-    })
-  }
-
-  $scope.submitGet = function() {
-    Income.get(function(value, response) {
-      console.log('success')
-      console.log(value)
-      console.log(response)
-    }, function(response) {
-      console.log('failure')
-      console.log(response)
     })
   }
 

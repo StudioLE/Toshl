@@ -1,15 +1,13 @@
 
-<a ng-click="oauth()" class="btn btn-info">Authorise</a>
+<h1>Submit
 
-<a ng-click="isAuthenticated()" class="btn btn-info">Is Authenticated?</a>
+  <a ng-if="isAuthenticated()" ng-click="submit()" class="btn btn-info">Submit incomes &amp; expenses</a>
+
+  <a ng-if=" ! isAuthenticated()" ng-click="signIn()" class="btn btn-info">You must sign in first</a>
+
+</h1>
 
 <h2>Incomes</h2>
-
-<!-- <a ng-click="oauth()">OAuth</a> -->
-
-<a ng-click="submit('incomes')" class="btn btn-info">Submit income</a>
-
-<a ng-click="submitGet()" class="btn btn-info">Get incomes</a>
 
 <table class="table table-striped">
   <thead>

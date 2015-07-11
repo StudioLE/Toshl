@@ -86,17 +86,16 @@ angular.module('app.dashboard', ['ngRoute'])
       // Parse each row
       results.parsed = _.map(results.data, Parse)
 
+      $scope.$apply(function() {
+          $scope.results = results
+      });
+
       // Store data in Local Storage
       Data.set(results)
       console.debug(Data.get())
 
       // Redirect
-      // $location.path('/parse')
-
-      // $scope.$apply(function() {
-      //     $scope.raw = reader.result;
-      //     $scope.results = results
-      // });
+      $location.path('/review')
     };
 
     // get <input> element and the selected file 

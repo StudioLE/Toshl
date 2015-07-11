@@ -9,7 +9,24 @@ Toshl is a fantastic web service for tracking your income and expenditures but i
 
 ## Roadmap / To Do
 
-[ ] Write a todo list
+UI Overhaul
+- [x] Re-theme
+- [ ] Home / splash page
+- [x] Emphasise steps
+- [x] Unify Authentication & submission
+- [x] Use icons (eg trash for clear data)
+
+Reorganisation
+- [x] Hide raw
+- [x] Process becomes review
+
+Code
+- [x] User icon to indicate whether authenticated
+- [ ] Revoke auth method
+
+Other
+- [ ] Come up with a neat name
+
 
 ## Source
 

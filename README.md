@@ -44,3 +44,27 @@ I'm always on the look out for collaborators so feel free to suggest new feature
 ## Install
 
 If you want to host your own private version or run a local version feel free to follow these [installation instructions](https://github.com/StudioLE/Toshl/blob/master/INSTALL.md).
+
+## Usage
+
+There's a small `cli.js` utility to simplify some of the development commands.
+
+Launch the the `app` server for development
+```
+node cli server app
+```
+
+Launch the the `backend` server
+```
+node cli server backend
+```
+
+Launch the the `backend` server forever
+```
+node cli server forever
+```
+
+Convert and minify the LESS file to CSS
+```
+node cli less
+```
